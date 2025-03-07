@@ -1,7 +1,14 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Search, Book, Globe, Award, Plane, Star } from "lucide-react";
+import {
+  ArrowRight,
+  Search,
+  Book,
+  Globe,
+  Award,
+  Plane,
+  Star,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 const floatingElements = {
@@ -18,13 +25,14 @@ const floatingElements = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-screen flex items-center justify-center overflow-hidden py-12 sm:py-0">
+    <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-screen flex items-center justify-center overflow-hidden py-12 sm:py-0 mt-20">
       {/* Background Effects */}
       <div
         className="absolute inset-0 bg-gradient-shimmer"
         style={
           {
             opacity: "0.3",
+            top: "0",
           } as any
         }
       >
@@ -33,7 +41,7 @@ const Hero = () => {
         <div className="absolute -right-[200px] bottom-[100px] w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl bg-gradient-pulse" />
         <div className="absolute left-[50%] top-[30%] w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-2xl" />
         <div className="absolute right-[30%] top-[15%] w-[200px] h-[200px] rounded-full bg-purple-500/10 blur-xl" />
-        
+
         {/* Animated stars */}
         {[...Array(5)].map((_, i) => (
           <motion.div
@@ -92,9 +100,9 @@ const Hero = () => {
               <br />
               <motion.span
                 className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary to-green-400"
-                animate={{ 
+                animate={{
                   scale: [1, 1.05, 1],
-                  filter: ["brightness(1)", "brightness(1.2)", "brightness(1)"] 
+                  filter: ["brightness(1)", "brightness(1.2)", "brightness(1)"],
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
@@ -177,7 +185,9 @@ const Hero = () => {
                     <div className="text-xl sm:text-2xl font-bold group-hover:text-green-400 transition-colors">
                       {stat.count}
                     </div>
-                    <div className="text-sm sm:text-base text-muted-foreground text-center">{stat.label}</div>
+                    <div className="text-sm sm:text-base text-muted-foreground text-center">
+                      {stat.label}
+                    </div>
                   </div>
                 </motion.div>
               ))}
