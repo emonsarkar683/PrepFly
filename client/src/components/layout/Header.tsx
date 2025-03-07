@@ -1,0 +1,173 @@
+import { useState, useEffect } from "react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Sheet } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import MobileNav from "./MobileNav";
+
+// TODO: Replace with actual auth state
+const isLoggedIn = false;
+
+const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? "bg-background/95 shadow-sm" : "bg-transparent"
+    } backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
+      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/">
+          <a className="flex items-center space-x-2">
+            <span className="font-bold text-xl text-primary">PrepFly</span>
+          </a>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
+          <NavigationMenu>
+            <NavigationMenuList className="space-x-4">
+              {isLoggedIn && (
+                <NavigationMenuItem>
+                  <Link href="/dashboard">
+                    <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                      Dashboard
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              )}
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="hover:text-primary transition-colors px-4 py-2">
+                  AI Evaluation
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-6 w-[400px] bg-white/80 backdrop-blur-lg rounded-lg">
+                    <NavigationMenuLink href="/evaluation/writing" className="hover:bg-primary/10 p-2 rounded transition-colors">
+                      <div className="flex items-center space-x-2">
+                        <span className="font-medium">Writing Evaluation</span>
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">AI Powered</span>
+                      </div>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink href="/evaluation/speaking" className="hover:bg-primary/10 p-2 rounded transition-colors">
+                      Speaking Evaluation
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="hover:text-primary transition-colors px-4 py-2">
+                  Test Prep
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-6 w-[400px] bg-white/80 backdrop-blur-lg rounded-lg">
+                    <NavigationMenuLink href="/prep/ielts" className="hover:bg-primary/10 p-2 rounded transition-colors">
+                      <div className="flex items-center space-x-2">
+                        <span className="font-medium">IELTS</span>
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">Popular</span>
+                      </div>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink href="/prep/gre" className="hover:bg-primary/10 p-2 rounded transition-colors">
+                      <div className="flex items-center">
+                        GRE
+                        <span className="ml-2 text-xs text-muted-foreground">Coming Soon</span>
+                      </div>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink href="/prep/sat" className="hover:bg-primary/10 p-2 rounded transition-colors">
+                      <div className="flex items-center">
+                        SAT
+                        <span className="ml-2 text-xs text-muted-foreground">Coming Soon</span>
+                      </div>
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/universities">
+                  <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                    University Finder
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/scholarships">
+                  <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                    Scholarships
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+
+              {!isLoggedIn && (
+                <NavigationMenuItem>
+                  <Link href="/pricing">
+                    <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                      Pricing
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              )}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          {isLoggedIn ? (
+            <Link href="/logout">
+              <Button variant="outline" size="sm" className="hover:bg-primary/10">
+                Log out
+              </Button>
+            </Link>
+          ) : (
+            <>
+              <Link href="/login">
+                <Button variant="outline" size="sm" className="hover:bg-primary/10">
+                  Log in
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button size="sm" className="hover:shadow-lg transition-shadow">
+                  Get Started
+                </Button>
+              </Link>
+            </>
+          )}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <Button
+          variant="ghost"
+          size="sm"
+          className="md:hidden hover:bg-primary/10"
+          onClick={() => setMobileMenuOpen(true)}
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
+
+        {/* Mobile Navigation */}
+        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <MobileNav onClose={() => setMobileMenuOpen(false)} />
+        </Sheet>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
