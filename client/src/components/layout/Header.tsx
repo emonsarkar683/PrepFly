@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -10,6 +10,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import MobileNav from "./MobileNav";
 
@@ -19,6 +20,7 @@ const isLoggedIn = false;
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,15 +31,17 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-background/95 shadow-sm" : "bg-transparent"
-    } backdrop-blur supports-[backdrop-filter]:bg-background/60`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-background/95 shadow-sm" : "bg-transparent"
+      } backdrop-blur supports-[backdrop-filter]:bg-background/60`}
+    >
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
-          <a className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 cursor-pointer">
             <span className="font-bold text-xl text-primary">PrepFly</span>
-          </a>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -47,82 +51,99 @@ const Header = () => {
               {isLoggedIn && (
                 <NavigationMenuItem>
                   <Link href="/dashboard">
-                    <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                    <div className={navigationMenuTriggerStyle()}>
                       Dashboard
-                    </NavigationMenuLink>
+                    </div>
                   </Link>
                 </NavigationMenuItem>
               )}
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:text-primary transition-colors px-4 py-2">
+                <NavigationMenuTrigger className="text-green-400 hover:text-primary transition-colors px-4 py-2">
                   AI Evaluation
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 w-[400px] bg-white/80 backdrop-blur-lg rounded-lg">
-                    <NavigationMenuLink href="/evaluation/writing" className="hover:bg-primary/10 p-2 rounded transition-colors">
-                      <div className="flex items-center space-x-2">
-                        <span className="font-medium">Writing Evaluation</span>
-                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">AI Powered</span>
+                <NavigationMenuContent className="supports-[backdrop-filter]:backdrop-blur-lg supports-[backdrop-filter]:bg-background/80 rounded-lg shadow-lg border border-green-400/20">
+                  <div className="w-[300px] p-4">
+                    <Link href="/evaluation/writing">
+                      <div className="flex items-center space-x-2 p-3 rounded-md hover:bg-primary/10 cursor-pointer transition-colors">
+                        <span className="font-medium text-green-400">
+                          Writing Evaluation
+                        </span>
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                          AI Powered
+                        </span>
                       </div>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink href="/evaluation/speaking" className="hover:bg-primary/10 p-2 rounded transition-colors">
-                      Speaking Evaluation
-                    </NavigationMenuLink>
+                    </Link>
+                    <Link href="/evaluation/speaking">
+                      <div className="p-3 rounded-md hover:bg-primary/10 cursor-pointer transition-colors">
+                        <span className="text-green-400">
+                          Speaking Evaluation
+                        </span>
+                      </div>
+                    </Link>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:text-primary transition-colors px-4 py-2">
+                <NavigationMenuTrigger className="text-green-400 hover:text-primary transition-colors px-4 py-2">
                   Test Prep
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 w-[400px] bg-white/80 backdrop-blur-lg rounded-lg">
-                    <NavigationMenuLink href="/prep/ielts" className="hover:bg-primary/10 p-2 rounded transition-colors">
-                      <div className="flex items-center space-x-2">
-                        <span className="font-medium">IELTS</span>
-                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">Popular</span>
-                      </div>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink href="/prep/gre" className="hover:bg-primary/10 p-2 rounded transition-colors">
-                      <div className="flex items-center">
-                        GRE
-                        <span className="ml-2 text-xs text-muted-foreground">Coming Soon</span>
-                      </div>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink href="/prep/sat" className="hover:bg-primary/10 p-2 rounded transition-colors">
-                      <div className="flex items-center">
-                        SAT
-                        <span className="ml-2 text-xs text-muted-foreground">Coming Soon</span>
-                      </div>
-                    </NavigationMenuLink>
+                <NavigationMenuContent className="supports-[backdrop-filter]:backdrop-blur-lg supports-[backdrop-filter]:bg-background/80 rounded-lg shadow-lg border border-green-400/20">
+                  <div className="w-[300px] p-4">
+                    <div
+                      className="flex items-center space-x-2 p-3 rounded-md hover:bg-primary/10 cursor-pointer transition-colors"
+                      onClick={() => window.location.href = "/prep/ielts"}
+                    >
+                      <span className="font-medium text-green-400">IELTS</span>
+                      <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                        Popular
+                      </span>
+                    </div>
+                    <div
+                      className="flex items-center p-3 rounded-md hover:bg-primary/10 cursor-pointer transition-colors"
+                      onClick={() => (window.location.href = "/prep/gre")}
+                    >
+                      <span className="text-green-400">GRE</span>
+                      <span className="ml-2 text-xs text-muted-foreground">
+                        Coming Soon
+                      </span>
+                    </div>
+                    <div
+                      className="flex items-center p-3 rounded-md hover:bg-primary/10 cursor-pointer transition-colors"
+                      onClick={() => (window.location.href = "/prep/sat")}
+                    >
+                      <span className="text-green-400">SAT</span>
+                      <span className="ml-2 text-xs text-muted-foreground">
+                        Coming Soon
+                      </span>
+                    </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <Link href="/universities">
-                  <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                  <div className="text-green-400 hover:text-primary transition-colors px-4 py-2 cursor-pointer">
                     University Finder
-                  </NavigationMenuLink>
+                  </div>
                 </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <Link href="/scholarships">
-                  <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                  <div className="text-green-400 hover:text-primary transition-colors px-4 py-2 cursor-pointer">
                     Scholarships
-                  </NavigationMenuLink>
+                  </div>
                 </Link>
               </NavigationMenuItem>
 
               {!isLoggedIn && (
                 <NavigationMenuItem>
                   <Link href="/pricing">
-                    <NavigationMenuLink className="hover:text-primary transition-colors px-4 py-2">
+                    <div className="text-green-400 hover:text-primary transition-colors px-4 py-2 cursor-pointer">
                       Pricing
-                    </NavigationMenuLink>
+                    </div>
                   </Link>
                 </NavigationMenuItem>
               )}
@@ -131,23 +152,34 @@ const Header = () => {
 
           {isLoggedIn ? (
             <Link href="/logout">
-              <Button variant="outline" size="sm" className="hover:bg-primary/10">
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-primary/10 font-medium"
+              >
                 Log out
               </Button>
             </Link>
           ) : (
-            <>
+            <div className="flex items-center gap-2">
               <Link href="/login">
-                <Button variant="outline" size="sm" className="hover:bg-primary/10">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="hover:bg-primary/10 font-medium"
+                >
                   Log in
                 </Button>
               </Link>
               <Link href="/signup">
-                <Button size="sm" className="hover:shadow-lg transition-shadow">
+                <Button
+                  size="sm"
+                  className="hover:shadow-lg transition-shadow font-medium"
+                >
                   Get Started
                 </Button>
               </Link>
-            </>
+            </div>
           )}
         </div>
 

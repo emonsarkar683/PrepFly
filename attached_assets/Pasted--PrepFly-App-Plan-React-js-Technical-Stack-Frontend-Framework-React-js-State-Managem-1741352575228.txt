@@ -1,0 +1,271 @@
+## PrepFly App Plan (React.js)
+
+Technical Stack
+
+- Frontend Framework: React.js
+- State Management: Redux or Context API
+- Routing: React Router
+- Styling: CSS Modules, TailwindCSS, or Styled Components
+- Backend (Optional): Node.js with Express (if needed for APIs)
+- Database (Optional): Firebase Firestore or MongoDB (if needed for data storage)
+- Hosting: Vercel, Netlify, or AWS Amplify
+
+---
+
+## App Features and Screens
+
+1. Login & Registration Screen
+
+#
+Features:
+
+- Login:
+- Email-based login with input validation.
+- Redirect to the Main Screen after successful login.
+- Registration:
+- Email-based registration with password confirmation.
+- Input validation for email format and password strength.
+- Password Recovery:
+- "Forgot Password" link to reset the password via email.
+
+#
+User Flow:
+
+1. User opens the app and lands on the Login Screen.
+2. If the user is new, they can navigate to the Registration Screen.
+3. After successful login/registration, the user is redirected to the Main Screen.
+
+---
+
+2. Main Screen
+
+#
+Features:
+
+- Bottom Navigation Bar:
+- Tabs for Home, Notice, and Profile.
+- Persistent across all screens for easy navigation.
+- Acts as a container for other screens.
+
+#
+User Flow:
+
+1. After login, the user lands on the Main Screen.
+2. The user can navigate to the Home Screen, Notice Screen, or Profile Screen using the bottom navigation bar.
+
+---
+
+3. Home Screen
+
+#
+Features:
+
+- Primary Content:
+- Scrollable list of posts or notices relevant to the app's purpose.
+- Each post displayed in a card format with a title, description, and thumbnail.
+- Create Post Button:
+- Floating action button (FAB) to create a new post (if the user has permission).
+- Search Bar:
+- Allows users to search for specific posts or content.
+
+#
+User Flow:
+
+1. The user lands on the Home Screen.
+2. They can scroll through the list of posts or use the search bar to find specific content.
+3. If authorized, the user can click the "Create Post" button to navigate to the Add/Edit Post Screen.
+
+---
+
+4. Add/Edit Post Screen
+
+#
+Features:
+
+- Add Post:
+- Form with fields for title, description, and optional image upload.
+- Submit button to save the post.
+- Edit Post:
+- Pre-filled form with the existing post details.
+- Save button to update the post.
+
+#
+User Flow:
+
+1. The user clicks the "Create Post" button on the Home Screen.
+2. They are redirected to the Add/Edit Post Screen.
+3. After submitting the form, the user is redirected back to the Home Screen.
+
+---
+
+5. Post Detail Screen
+
+#
+Features:
+
+- Post Details:
+- Full details of the post, including title, description, image, author, and timestamp.
+- Edit/Delete Buttons:
+- Visible only to the post author or admin.
+- Back Button:
+- Navigates back to the Home Screen.
+
+#
+User Flow:
+
+1. The user clicks on a post from the Home Screen.
+2. They are redirected to the Post Detail Screen.
+3. If authorized, they can edit or delete the post.
+
+---
+
+6. Notice Screen
+
+#
+Features:
+
+- Notices List:
+- Scrollable list of important notices in a card format.
+- Each card displays the title and a short description.
+- Filters:
+- Categories or filters for better organization.
+
+#
+User Flow:
+
+1. The user navigates to the Notice Screen from the bottom navigation bar.
+2. They can scroll through the list of notices or use filters to find specific notices.
+
+---
+
+7. Profile Screen
+
+#
+Features:
+
+- User Profile:
+- Display user information (e.g., profile picture, username, bio).
+- User Posts:
+- List of posts created or saved by the user.
+- Account Settings:
+- Options to change password, update profile, or manage privacy settings.
+
+#
+User Flow:
+
+1. The user navigates to the Profile Screen from the bottom navigation bar.
+2. They can view or edit their profile information and manage account settings.
+
+---
+
+8. Admin Panel
+
+#
+Features:
+
+- User Management:
+- View, suspend, or delete user accounts.
+- Post Management:
+- Edit or delete inappropriate posts.
+- Notice Management:
+- Create, edit, or delete notices.
+- App Statistics:
+- View basic app statistics (e.g., number of active users, posts, and reports).
+
+#
+User Flow:
+
+1. Admins access the Admin Panel from the Profile Screen.
+2. They can manage users, posts, and notices or view app statistics.
+
+---
+
+9. Feedback & Support Screen
+
+#
+Features:
+
+- Contact Form:
+- Form to submit feedback or report issues.
+- FAQs:
+- List of frequently asked questions and answers.
+- Support Articles:
+- Links to support resources.
+
+#
+User Flow:
+
+1. The user navigates to the Feedback & Support Screen from the Profile Screen.
+2. They can submit feedback or browse FAQs and support articles.
+
+---
+
+10. Settings Screen
+
+#
+Features:
+
+- Account Management:
+- Options to change password, update username, or delete the account.
+- Notification Preferences:
+- Enable or disable specific notifications.
+- Privacy Settings:
+- Manage account visibility and block users.
+
+#
+User Flow:
+
+1. The user navigates to the Settings Screen from the Profile Screen.
+2. They can update their account, notification, or privacy settings.
+
+---
+
+11. Additional Screens
+
+#
+Search Screen:
+
+- Search bar with keyword suggestions and filters.
+- Results displayed in a scrollable grid or list format.
+
+#
+Notification Screen:
+
+- List of app notifications (e.g., new posts, replies, updates).
+- Option to manage or clear notifications.
+
+#
+Tutorial/Onboarding Screen:
+
+- Step-by-step introduction to the app for new users.
+- "Skip" button to bypass the tutorial.
+
+---
+
+## Logical Screen Flow
+1. Login/Registration Screen → Main Screen.
+2. Main Screen → Home Screen, Notice Screen, or Profile Screen.
+3. Home Screen → Post Detail Screen or Add/Edit Post Screen.
+4. Profile Screen → Admin Panel, Feedback & Support Screen, or Settings Screen.
+5. Notice Screen → Notice Detail Screen (if applicable).
+
+---
+
+## Design Theme
+- Light Theme: Clean and modern design with a focus on readability and usability.
+
+---
+
+## Implementation Notes
+- Use React Router for navigation between screens.
+- Use Redux or Context API for state management.
+- Ensure responsive design for mobile and desktop views.
+- Optimize performance by lazy-loading components and using React's memoization techniques.
+
+---
+
+This app plan is designed to be implemented using React.js and adheres to all specified guidelines and restrictions. Let me know if you need further details or adjustments! 🚀
+
+You're currently using a trial version. To continue chatting, please make a payment.
+
+You have ( 0 ) free trial sessions remaining.

@@ -28,24 +28,34 @@ const MobileNav = ({ onClose }: MobileNavProps) => {
             <AccordionTrigger>Exam Prep</AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col space-y-2 pl-4">
-                <Link href="/ielts">
-                  <a className="flex items-center py-2 hover:text-primary" onClick={onClose}>
-                    IELTS Preparation
-                    <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-1 rounded">Popular</span>
-                  </a>
-                </Link>
-                <Link href="/toefl">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>TOEFL Training</a>
-                </Link>
-                <Link href="/gre">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>GRE Practice</a>
-                </Link>
-                <Link href="/sat">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>SAT Preparation</a>
-                </Link>
-                <Link href="/gmat">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>GMAT Training</a>
-                </Link>
+                <div onClick={onClose}>
+                  <Link href="/ielts">
+                    <div className="flex items-center py-2 hover:text-primary cursor-pointer">
+                      IELTS Preparation
+                      <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-1 rounded">Popular</span>
+                    </div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/toefl">
+                    <div className="py-2 hover:text-primary cursor-pointer">TOEFL Training</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/gre">
+                    <div className="py-2 hover:text-primary cursor-pointer">GRE Practice</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/sat">
+                    <div className="py-2 hover:text-primary cursor-pointer">SAT Preparation</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/gmat">
+                    <div className="py-2 hover:text-primary cursor-pointer">GMAT Training</div>
+                  </Link>
+                </div>
               </div>
             </AccordionContent>
           </AccordionItem>
@@ -54,21 +64,29 @@ const MobileNav = ({ onClose }: MobileNavProps) => {
             <AccordionTrigger>Features</AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col space-y-2 pl-4">
-                <Link href="/ai-assistant">
-                  <a className="flex items-center py-2 hover:text-primary" onClick={onClose}>
-                    AI Study Assistant
-                    <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-1 rounded">New</span>
-                  </a>
-                </Link>
-                <Link href="/practice">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>Mock Tests</a>
-                </Link>
-                <Link href="/speaking">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>Speaking Practice</a>
-                </Link>
-                <Link href="/writing">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>Writing Evaluation</a>
-                </Link>
+                <div onClick={onClose}>
+                  <Link href="/ai-assistant">
+                    <div className="flex items-center py-2 hover:text-primary cursor-pointer">
+                      AI Study Assistant
+                      <span className="ml-2 text-xs bg-primary/10 text-primary px-2 py-1 rounded">New</span>
+                    </div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/practice">
+                    <div className="py-2 hover:text-primary cursor-pointer">Mock Tests</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/speaking">
+                    <div className="py-2 hover:text-primary cursor-pointer">Speaking Practice</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/writing">
+                    <div className="py-2 hover:text-primary cursor-pointer">Writing Evaluation</div>
+                  </Link>
+                </div>
               </div>
             </AccordionContent>
           </AccordionItem>
@@ -77,42 +95,56 @@ const MobileNav = ({ onClose }: MobileNavProps) => {
             <AccordionTrigger>Resources</AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col space-y-2 pl-4">
-                <Link href="/study-materials">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>Study Materials</a>
-                </Link>
-                <Link href="/live-classes">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>Live Classes</a>
-                </Link>
-                <Link href="/community">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>Community Forum</a>
-                </Link>
-                <Link href="/blog">
-                  <a className="py-2 hover:text-primary" onClick={onClose}>Blog & Tips</a>
-                </Link>
+                <div onClick={onClose}>
+                  <Link href="/study-materials">
+                    <div className="py-2 hover:text-primary cursor-pointer">Study Materials</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/live-classes">
+                    <div className="py-2 hover:text-primary cursor-pointer">Live Classes</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/community">
+                    <div className="py-2 hover:text-primary cursor-pointer">Community Forum</div>
+                  </Link>
+                </div>
+                <div onClick={onClose}>
+                  <Link href="/blog">
+                    <div className="py-2 hover:text-primary cursor-pointer">Blog & Tips</div>
+                  </Link>
+                </div>
               </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
 
         <div className="mt-6 space-y-2">
-          <Link href="/pricing">
-            <a className="block px-2 py-2 hover:text-primary" onClick={onClose}>
-              Pricing
-            </a>
-          </Link>
+          <div onClick={onClose}>
+            <Link href="/pricing">
+              <div className="block px-2 py-2 hover:text-primary cursor-pointer">
+                Pricing
+              </div>
+            </Link>
+          </div>
         </div>
 
         <div className="mt-6 space-y-2">
-          <Link href="/login">
-            <Button variant="outline" className="w-full" onClick={onClose}>
-              Log in
-            </Button>
-          </Link>
-          <Link href="/signup">
-            <Button className="w-full" onClick={onClose}>
-              Get Started
-            </Button>
-          </Link>
+          <div onClick={onClose}>
+            <Link href="/login">
+              <Button variant="outline" className="w-full font-medium">
+                Log in
+              </Button>
+            </Link>
+          </div>
+          <div onClick={onClose}>
+            <Link href="/signup">
+              <Button className="w-full font-medium">
+                Get Started
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </SheetContent>

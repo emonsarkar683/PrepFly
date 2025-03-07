@@ -1,0 +1,52 @@
+For **PrepFly**, the theme should reflect a **modern, professional, and engaging** look while keeping it **user-friendly and visually appealing**. Since it's an **AI-powered test preparation platform**, the theme should be:  
+
+✅ **Minimalistic & Clean** – Avoid clutter, focus on usability.  
+✅ **Tech-Driven & Futuristic** – Subtle animations, modern typography.  
+✅ **Educational & Trustworthy** – Soft, welcoming colors.  
+✅ **Dark Mode Support** – User preference for better accessibility.  
+
+---
+
+### **🎨 Best Theme for PrepFly: "Neo-Tech Edu"**
+**A sleek, AI-inspired, and student-friendly theme with a balance of professionalism and fun learning.**  
+
+#### **1️⃣ Color Palette** 🎨  
+🟦 **Primary:** Deep Blue (`#0056b3`) – Represents trust & intelligence.  
+🟩 **Secondary:** Emerald Green (`#34d399`) – A sign of progress & motivation.  
+⚪ **Background:** Soft Gray (`#f8f9fa`) – Keeps the UI clean & readable.  
+⚫ **Dark Mode:** Dark Blue (`#1e293b`) with Soft Neon Highlights.  
+
+---
+
+#### **2️⃣ UI Elements & Style**  
+📌 **Modern Typography** – Sans-serif fonts like `Inter`, `Poppins`, or `Nunito` for readability.  
+📌 **Rounded Cards & Buttons** – Softer edges for a friendly user experience.  
+📌 **Glassmorphism Effects** – Subtle transparency for a futuristic feel.  
+📌 **Smooth Animations** – Framer Motion for transitions (e.g., button hover, AI chatbot popup).  
+📌 **Consistent Iconography** – Minimal Lucide/Material Icons for intuitive navigation.  
+
+---
+
+#### **3️⃣ Layout & Components**  
+- **Header:** Transparent with a hover-dark effect.  
+- **Hero Section:** A large AI-powered test prep illustration with CTA buttons.  
+- **Features:** Grid-based cards with soft shadows.  
+- **Forum & Community:** Simple, interactive, and well-spaced discussions.  
+- **Footer:** Dark theme with contrasting white text & social links.  
+
+---
+
+#### **4️⃣ Dark Mode Support** 🌙  
+- Background: Dark Blue (`#1e293b`)  
+- Text: Soft White (`#e5e7eb`)  
+- Highlighted Elements: **Neon Blue (`#3b82f6`) & Cyan (`#06b6d4`)**  
+
+---
+
+### **🚀 Why This Theme?**
+✔ **Professional & Student-Friendly**  
+✔ **AI & Tech-Focused Vibe**  
+✔ **Smooth User Experience with Easy Navigation**  
+✔ **Engaging & Encouraging for Learners**  
+
+Let me know if you need tweaks or visual references! 🎨🚀

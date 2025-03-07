@@ -4,6 +4,8 @@ import Footer from "@/components/layout/Footer";
 import Hero from "./Hero";
 import Features from "./Features";
 import Testimonials from "./Testimonials";
+import PricingSection from "./PricingSection";
+
 import NewsletterSignup from "./NewsletterSignup";
 import { siteMetadata } from "@/lib/metadata";
 
@@ -27,6 +29,7 @@ const HomePage = () => {
           <Hero />
           <Features />
           <Testimonials />
+          <PricingSection />
           <NewsletterSignup /> {/* Include the component here */}
         </main>
         <Footer />
